@@ -1,0 +1,8 @@
+LDA 8100   		
+ANI 80     		 
+JZ POSITIVE		  
+MVI A, 01 		  
+JMP STORE  
+POSITIVE: MVI A, 00  		
+STORE: STA 8101  		
+HLT
