@@ -1,0 +1,8 @@
+LDA 3000    
+MOV B, A     
+LDA 3001     
+CMP B         
+JC STORE   
+MOV A, B      
+STORE: STA 3002    
+HLT
