@@ -1,0 +1,8 @@
+LDA 8100  			 
+ANI 01   			 
+JZ EVEN     			
+MVI A, 01			 
+JMP STORE  
+EVEN: MVI A, 00  		 
+STORE: STA 8101  		
+HLT
