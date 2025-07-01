@@ -1,0 +1,14 @@
+LXI H, 8000H   		
+MOV C, M     		  
+INX H          		
+MOV A, M     		  
+DCR C          		
+LOOP: INX H    		
+MOV B, M      		 
+CMP B          		
+JC SKIP        		
+MOV A, B      		 
+SKIP: DCR C   		 
+JNZ LOOP       		
+STA 9000H     		
+HLT           

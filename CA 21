@@ -1,0 +1,23 @@
+MVI C, 05H       
+LXI H, 8100H     
+
+LOOP1: MOV D, C  
+LXI H, 8100H     
+
+LOOP2: MOV A, M  
+INX H            
+CMP M            
+JNC SKIP         
+MOV B, M         
+MOV M, A         
+DCX H            
+MOV M, B         
+INX H            
+
+SKIP: DCR D      
+JNZ LOOP2        
+
+DCR C            
+JNZ LOOP1        
+
+HLT   

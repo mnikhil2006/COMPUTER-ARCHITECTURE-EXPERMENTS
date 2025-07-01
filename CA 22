@@ -1,0 +1,15 @@
+MVI C, 05H  
+LXI H, 8100H  
+MOV A, M  
+INX H  
+
+LOOP: CMP M  
+JNC SKIP  
+MOV A, M  
+
+SKIP: INX H  
+DCR C  
+JNZ LOOP  
+
+STA 8200H  
+HLT 
