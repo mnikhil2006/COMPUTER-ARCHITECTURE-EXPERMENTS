@@ -1,0 +1,18 @@
+LXI H,8000H    
+MOV A,M        
+INX H          
+MOV B,M        
+START: CMP B          
+JZ DONE        
+JC GREATER   
+SUB B          
+JMP START
+GREATER: MOV C,B        
+MOV B,A        
+MOV A,C        
+SUB B          
+JMP START
+
+DONE: LXI H,8002H    
+MOV M,A        
+HLT            

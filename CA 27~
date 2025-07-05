@@ -1,0 +1,32 @@
+LXI H,8000H    
+MOV A,M        
+MOV B,A        
+MVI C,00H     
+MVI D,0AH     
+
+DIV_LOOP:      
+CMP D          
+JC DONE_DIV    
+SUB D          
+INR C          
+JMP DIV_LOOP
+
+DONE_DIV: MOV E,C        
+MVI D,0AH      
+MOV A,E
+CALL MUL10    
+ADD B          
+LXI H,8001H    
+MOV M,A        
+HLT
+
+
+MUL10: PUSH B
+MOV B,A       
+ADD A          
+ADD A         
+ADD A         
+ADD B          
+ADD B          
+POP B
+RET

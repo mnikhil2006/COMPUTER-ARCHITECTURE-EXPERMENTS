@@ -1,0 +1,20 @@
+LXI H,8000H   
+MOV A,M        
+MOV C,A        
+DCR C          
+MOV B,A        
+
+FACT_LOOP: MVI A,00H      
+MOV D,B        
+MOV E,C        
+MULT_LOOP:
+ADD D          
+DCR E          
+JNZ MULT_LOOP  
+MOV B,A        
+DCR C          
+JNZ FACT_LOOP  
+
+LXI H,8001H    
+MOV M,B        
+HLT            
